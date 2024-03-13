@@ -1,1 +1,470 @@
+package Java_Assignment;
+
+public class Q1_AdditionFloat {
+
+	public static void main(String[] args) {
+	
+		Q1_AdditionFloat ft = new Q1_AdditionFloat();
+		ft.Addition_of_float(1.2f, 6.7f);
+
+	}
+	
+	public void Addition_of_float(float a, float b)
+	{
+		System.out.println(a+b);
+	}
+
+}
+-------------------------------------------------------
+
+package Java_Assignment;
+
+import java.util.Scanner;
+
+public class Q3_ExceptionAge  {
+	
+	    public static void main(String[]args){
+
+	      @SuppressWarnings("resource")
+		Scanner age = new Scanner (System.in);
+	      System.out.println("Enter your age");
+	      int a = age.nextInt();
+
+	  try{  
+	     if(a <25 || a>55){         
+	        throw new Exception();
+	     }          
+	    }
+	    catch(Exception e){
+	    System.out.println("You entered an invalid number" + a);        
+	    }
+	    finally{
+	        System.out.println("Your age is " + a);
+	    }   
+	}
+	}
+-----------------------------------------------------------------
+package Java_Assignment;
+
+
+	public class Q4_3Parameters {
+
+	public static void main(String args[])
+	    {
+	        Q4_3Parameters cal = new Q4_3Parameters();
+	        cal.calculator("Sub",15,8);
+
+	    }
+
+	    public void calculator(String operation, int a, int b) {
+	        if (operation.equals("Add")) {
+	            int result = a + b;
+	            System.out.println("Result of addition: " + result);
+	        } else if (operation.equals("Sub")) {
+	            int result = a - b;
+	            System.out.println("Result of Subtraction: " + result);
+	        }
+	     else if (operation.equals("Sub")) {
+	            int result = a - b;
+	            System.out.println("Result of Subtraction: " + result);
+	        }
+	     else if (operation.equals("Mult")) {
+	            int result = a * b;
+	            System.out.println("Result of multiplication: " + result);
+	        }
+	     else if (operation.equals("Div")) {
+	            int result = a / b;
+	            System.out.println("Result of division: " + result);
+	        }
+	    }
+	}
+
+---------------------------------------------------------------------------------
+package Java_Assignment;
+
+public class Q5_Loop808 {
+
+	public static void main(String[] args) {
+		for(int num =500; num<=1000;num++)
+			if(num==808)
+			{
+				System.out.println("Number found: "+num);
+			}
+
+	}
+
+}
+----------------------------------------------------------------------------------
+package Java_Assignment;
+
+public class Q7_ReturnC {
+
+	public static void main(String[] args) {
+		
+		System.out.println(returnNumber());
+		
+	}
+		
+		public static int returnNumber(){
+
+		    float c = 0;
+
+		    float a = 7.8f;
+
+		    float b = 4.4f;
+
+		     c=(a+b);
+
+		    return (int)c;
+
+		  }
+
+}
+-------------------------------------------------------------------------
+package Java_Assignment;
+
+public class Q8_WelcomeSpace {
+
+	public static void main(String[] args) {
+		String a = "Welcome To Java";
+
+		int spaceCount = 0;
+		for (char c : a.toCharArray()) {
+			if (c == ' ') {
+				spaceCount++;
+			}
+		}
+		System.out.println("Number of spaces: " + spaceCount);
+
+		
+		String[] words = a.split(" ");
+
+		if (words.length > 0) {
+			System.out.println("First word: " + words[0]);
+		}
+	}
+
+}
+---------------------------------------------------------------------------
+package Java_Assignment;
+
+public class Q9_RemoveChar {
+
+	public static void main(String[] args) {
+		String input = "ABCDE12345";
+		StringBuilder digits = new StringBuilder();
+
+		for (char c : input.toCharArray()) {
+
+			if (Character.isDigit(c)) {
+
+				digits.append(c);
+			}
+		}
+		System.out.println(digits.toString());
+	}
+}
+-----------------------------------------------------------------------------
+package Java_Assignment;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Q11_EmpIdName {
+
+	public static void main(String[] args) {
+        Map<Integer, String> employeeMap = new HashMap<>();
+
+        employeeMap.put(123, "Jadeja");
+        employeeMap.put(124, "Smith");
+        employeeMap.put(125, "Johnson");
+        // Add more employees...
+
+        int empIdToFind = 123;
+        String empName = employeeMap.get(empIdToFind);
+        if (empName != null) {
+            System.out.println("Employee ID: " + empIdToFind + ", Name: " + empName);
+        } else {
+            System.out.println("Employee with ID " + empIdToFind + " not found.");
+        }
+    }
+}
+------------------------------------------------------------------------------
+package Java_Assignment;
+
+public class Q12_ForWhile {
+
+	public static void main(String[] args) {
+		
+		for (int i = 1; i <= 100; i++) {
+            System.out.println("Using for loop: "+i);
+        }
+		
+		int count1 = 1;
+        while (count1 <= 100) {
+            System.out.println("Using while loop: " +count1);
+            count1++;
+        }
+    }
+
+	}
+----------------------------------------------------------------------------
+package Java_Assignment;
+
+public class Q13_Reverse {
+
+	public static void main(String[] args) {
+		String originalString = "Welcome To Java";
+		String reversedString = reverse(originalString);
+		System.out.println("Original String: " + originalString);
+		System.out.println("Reversed String: " + reversedString);
+	}
+
+	public static String reverse(String str) {
+		StringBuilder sb = new StringBuilder(str);
+
+		sb.reverse();
+
+		return sb.toString();
+
+	}
+
+}
+---------------------------------------------------------------
+package Java_Assignment;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class Q14_CurrentDate {
+
+	public static void main(String[] args) {
+		
+		        LocalDate currentDate = LocalDate.now();
+		        System.out.println("Current Date: " + currentDate);
+		        
+		        String currentDateStr = getCurrentDateAsString();
+		        System.out.println("Current Date as String: " + currentDateStr);
+		    }
+
+		    public static String getCurrentDateAsString() {
+		        LocalDate currentDate = LocalDate.now();
+
+		        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		        String formattedDate = currentDate.format(formatter);
+
+		        return formattedDate;
+		    }
+
+	}
+---------------------------------------------------------------
+package Java_Assignment;
+
+import java.time.LocalDate;
+
+public class Q16_Switch {
+
+	public static void main(String[] args) {
+		
+		LocalDate currentDate = LocalDate.now();
+        int currentMonth = currentDate.getMonthValue();
+        
+        switch (currentMonth) {
+            case 1:
+                System.out.println("January");
+                break;
+            case 2:
+                System.out.println("February");
+                break;
+            case 3:
+                System.out.println("March");
+                break;
+            case 4:
+                System.out.println("April");
+                break;
+            case 5:
+                System.out.println("May");
+                break;
+            case 6:
+                System.out.println("June");
+                break;
+            case 7:
+                System.out.println("July");
+                break;
+            case 8:
+                System.out.println("August");
+                break;
+            case 9:
+                System.out.println("September");
+                break;
+            case 10:
+                System.out.println("October");
+                break;
+            case 11:
+                System.out.println("November");
+                break;
+            case 12:
+                System.out.println("December");
+                break;
+            default:
+                System.out.println("Invalid month");
+        }
+
+	}
+
+}
+-----------------------------------------------------------
+package Java_Assignment;
+
+public class Q17_EvenOdd {
+
+	public static void main(String[] args) {
+		
+		int i = 0;
+		
+		for (i=0;i<100;i++) {
+		
+			if ( i%2==0)
+			{
+				System.out.println("Even number: "+i);
+			
+			}
+			else 
+			{
+				System.out.println("Odd number: "+i);
+			}
+		}
+		
+		
+			
+			
+
+	}
+
+}
+---------------------------------------------------------
+package Java_Assignment;
+
+public class Q18_SachinRahul {
+
+	public static void main(String[] args) {
+		String name1 = "Sachin Tendulkar";
+        String name2 = "Rahul Dravid";
+
+        String firstName1 = name1.substring(0, name1.indexOf(' '));
+        System.out.println("First name from \"Sachin Tendulkar\": " + firstName1);
+
+        String secondName2 = name2.substring(name2.indexOf(' ') + 1);
+        System.out.println("Secod name from \"Rahul Dravid\": " + secondName2);
+      
+
+	}
+
+}
+----------------------------------------------------------
+package Java_Assignment;
+
+public class Q19_SpellingMistake {
+
+	public static void main(String[] args) {
+		String playerName1 = "Davi Beckham";
+        String playerName2 = "Lionel Messi has scored 400 goals";
+
+        String correctedName1 = playerName1.replace("Davi", "David");
+        System.out.println("Corrected name: " + correctedName1);
+
+        String correctedGoals = playerName2.replace("400", "579");
+        System.out.println("Corrected number of goals: " + correctedGoals);
+
+	}
+
+}
+-----------------------------------------------------------
+package Java_Assignment;
+
+public class Q20_EqualRonaldo {
+
+	public static void main(String[] args) {
+		String name1 = "Cristiano Ronaldo";
+        String name2 = "Ronaldo Nazario";
+
+        if (name1.equals(name2)) {
+            System.out.println("The names \"" + name1 + "\" and \"" + name2 + "\" are equal.");
+        } else {
+            System.out.println("The names \"" + name1 + "\" and \"" + name2 + "\" are not equal.");
+        }
+
+	}
+
+}
+------------------------------------------------------------
+package Java_Assignment;
+
+public class Q21_ReplaceName {
+
+	public static void main(String[] args) {
+		String originalName1 = "Liverpool";
+        String originalName2 = "City";
+
+        String newName1 = originalName1.replace("Liverpool", "Liverpool Football Club");
+        System.out.println("Original name: " + originalName1);
+        System.out.println("New name: " + newName1);
+
+        String newName2 = originalName2.replace("City", "Manchester City");
+        System.out.println("\nOriginal name: " + originalName2);
+        System.out.println("New name: " + newName2);
+
+	}
+
+}
+------------------------------------------------------------
+package Java_Assignment;
+
+public class Q22_NarendraModi {
+
+	public static void main(String[] args) {
+	 
+		Q22_NarendraModi obj = new Q22_NarendraModi();
+		obj.UpperCase();
+		obj.LowerCase();
+		
+	}
+	public void UpperCase()
+	{
+	
+		String myStr = "Narendra Modi";
+	    System.out.println(myStr.toUpperCase());
+	}
+	public void LowerCase()
+	{
+		String myStr1 = "Narendra Modi";
+	    System.out.println(myStr1.toLowerCase());
+	}
+	
+
+}
+-------------------------------------------------------------
+package Java_Assignment;
+
+public class Q24_OverloadedConstructor {
+	public Q24_OverloadedConstructor(int a, int b) {
+        System.out.println("Two integers: "+ (a+b));
+    }
+
+    public Q24_OverloadedConstructor(int num) {
+        System.out.println("Enter one number: " + num);
+    }
+
+    public Q24_OverloadedConstructor(String str) {
+        System.out.println("Enter a string: " + str);
+    }
+
+    public static void main(String[] args) {
+        // Creating objects using the overloaded constructors
+    	Q24_OverloadedConstructor obj1 = new Q24_OverloadedConstructor(23, 76);
+    	Q24_OverloadedConstructor obj2 = new Q24_OverloadedConstructor(10);
+    	Q24_OverloadedConstructor obj3 = new Q24_OverloadedConstructor("Ruchi");
+    }
+
+}
 
