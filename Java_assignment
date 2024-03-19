@@ -16,7 +16,46 @@ public class Q1_AdditionFloat {
 
 }
 -------------------------------------------------------
+public class Q2_A {
 
+
+
+
+
+    public static void main(String args[]) {
+        Q2_B objB = new Q2_B();
+        System.out.println(objB.amount);
+        Q2_B objB1 = new Q2_B(50);
+        System.out.println("Print the variable a from Class A with the value declared from Class B = "+objB1.amount);
+
+        Q2_B objB2 = new Q2_B(1000,20);
+        System.out.println("Where use constructor to reset the value of the variable from Class_A to Class B = " +objB2.b +" and value of C = "+ objB2.c);
+
+    }
+
+
+}
+
+public class Q2_B {
+    int amount = 500;
+     int c ;
+     int b;
+
+    public Q2_B() {
+
+    }
+
+    public Q2_B(int amount) {
+
+        this.amount = amount;
+    }
+
+    public Q2_B(int b,int c) {
+        this.b = b;
+        this.c = c;
+    }
+}
+-----------------------------------------------------------------------
 package Java_Assignment;
 
 import java.util.Scanner;
@@ -95,6 +134,35 @@ public class Q5_Loop808 {
 
 }
 ----------------------------------------------------------------------------------
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.TreeSet;
+
+public class Q6_HashTree {
+
+        public static void main(String[] args) {
+
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            for (int i = 200; i <= 500; i++) {
+                arrayList.add(i);
+            }
+            System.out.println("ArrayList: " + arrayList);
+            HashSet<Integer> hashSet = new HashSet<>();
+            for (int i = 200; i <= 500; i++) {
+                hashSet.add(i);
+            }
+            System.out.println("HashSet: " + hashSet);
+            // TreeSet
+            TreeSet<Integer> treeSet = new TreeSet<>();
+            for (int i = 200; i <= 500; i++) {
+                treeSet.add(i);
+            }
+            System.out.println("TreeSet: " + treeSet);
+        }
+
+
+}
+------------------------------------------------------------------------------------
 package Java_Assignment;
 
 public class Q7_ReturnC {
@@ -165,6 +233,59 @@ public class Q9_RemoveChar {
 	}
 }
 -----------------------------------------------------------------------------
+package Java_Assignment;
+
+public class Q10_classA {
+	
+	    private int privateData;
+
+	    public Q10_classA(int privateData) {
+	        this.privateData = privateData;
+	    }
+	    public int getPrivateData() {
+	        return privateData;
+	    }
+
+	    public void setPrivateData(int privateData) {
+	        this.privateData = privateData;
+	    }
+
+}
+
+package Java_Assignment;
+
+public class Q10_classB {
+	 private Q10_classA myObject;
+	    public Q10_classB(Q10_classA myObject) {
+	        this.myObject = myObject;
+	    }
+	    public void accessPrivateData() {
+	        int data = myObject.getPrivateData();
+	        System.out.println("Private data accessed from Q1_classB: " + data);
+	    }
+	    public void modifyPrivateData(int newData) {
+	        myObject.setPrivateData(newData);
+	        System.out.println("Private data modified from Q1_classB");
+
+	}
+
+}
+package Java_Assignment;
+
+public class Q10_MainClass {
+
+	public static void main(String[] args) {
+		Q10_classA obj1 = new Q10_classA(15);
+		Q10_classB obj2 = new Q10_classB(obj1);
+
+        obj2.accessPrivateData();
+        obj2.modifyPrivateData(22); 
+        obj2.accessPrivateData();
+
+	}
+
+}
+------------------------------------------------------------------------------
 package Java_Assignment;
 
 import java.util.HashMap;
@@ -258,6 +379,33 @@ public class Q14_CurrentDate {
 
 	}
 ---------------------------------------------------------------
+package Java_Assignment;
+
+public class Q15_RadomNumber {
+
+	public static String generateRandomAlphaNumeric(int length) {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        StringBuilder sb = new StringBuilder();
+
+        long currentTimeMillis = System.currentTimeMillis();
+
+        for (int i = 0; i < length; i++) {
+            int index = (int) (currentTimeMillis % characters.length());
+            sb.append(characters.charAt(index));
+            currentTimeMillis++;
+        }
+
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        String randomString = generateRandomAlphaNumeric(50);
+        System.out.println("Random alphanumeric string of length:" + randomString);
+    }
+
+	}
+--------------------------------------------------------------------------------------
 package Java_Assignment;
 
 import java.time.LocalDate;
@@ -444,6 +592,33 @@ public class Q22_NarendraModi {
 
 }
 -------------------------------------------------------------
+package Java_Assignment;
+
+import java.util.Scanner;
+
+public class Q23_Exception {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter a number: ");
+            int number = scanner.nextInt();
+            int result = 10 / number;
+            System.out.println("Result of division: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero or invalid input.");
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred: " + e.getMessage());
+        } finally {
+
+            scanner.close();
+            System.out.println("Finally block executed.");
+        }
+
+	}
+
+}
+--------------------------------------------------------------------------
 package Java_Assignment;
 
 public class Q24_OverloadedConstructor {
